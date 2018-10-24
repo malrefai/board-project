@@ -16,7 +16,6 @@ install:
   - pip install -r requirements/travisCI.txt
 before_script:
   - mysql -e 'create database travis_ci_db;'
-  - python manage.py syncdb --noinput
 script:
   - yapf -vv -pri board/
   - flake8 `ls -d */ | egrep -v 'config|requirements'`
