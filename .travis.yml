@@ -1,6 +1,6 @@
 language: python
 python:
-  - "3.7.0"
+  - "3.6.0"
 services:
   - mysql
 env:
@@ -16,12 +16,11 @@ install:
   - pip install -r requirements/travisCI.txt
 before_script:
   - mysql -e 'create database travis_ci_db;'
-  - python manage.py syncdb --noinput
 script:
   - yapf -vv -pri board/
   - flake8 `ls -d */ | egrep -v 'config|requirements'`
   - python manage.py migrate
-  - coverage run ./manage.py test
+  - coverage run --include='board/*py' --omit='board/apps.py,board/migrations/*.py,board/tests/*.py' ./manage.py test
 # publish coverage only after a successful build
 after_success:
   - codecov

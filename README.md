@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/malrefai/board-project.svg?branch=develop)](https://travis-ci.org/malrefai/board-project)
+[![codecov](https://codecov.io/gh/malrefai/board-project/branch/develop/graph/badge.svg)](https://codecov.io/gh/malrefai/board-project)
+
 # Board App
 Board app is a ...
 
