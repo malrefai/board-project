@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/malrefai/board-project.svg?branch=develop)](https://travis-ci.org/malrefai/board-project)
+
 # Board App
 Board app is a ...
 
