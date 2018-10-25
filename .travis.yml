@@ -16,11 +16,13 @@ install:
   - pip install -r requirements/travisCI.txt
 before_script:
   - mysql -e 'create database travis_ci_db;'
+  - curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
 script:
   - yapf -vv -pri board/
   - flake8 `ls -d */ | egrep -v 'config|requirements'`
   - python manage.py migrate
   - coverage run --include='board/*py' --omit='board/apps.py,board/migrations/*.py,board/tests/*.py' ./manage.py test
+  - fossa
 # publish coverage only after a successful build
 after_success:
   - codecov
