@@ -1,7 +1,7 @@
 -r base.txt # includes the base.txt requirements file
 
-mysqlclient
 -e git+https://gitlab.com/pycqa/flake8@7801a17adc566af818e4da2ea75c7a28974b745c#egg=flake8
 yapf==0.24.0
 factory-boy==2.11.1
+mysqlclient
 codecov
