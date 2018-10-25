@@ -6,7 +6,7 @@ from ..factories import TopicFactory
 
 class TopicModelTest(TestCase):
     """
-    This class defines the test suite for the board model.
+    This class defines the test suite for the topic model.
     """
 
     topic = None
