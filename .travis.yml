@@ -16,11 +16,11 @@ install:
   - pip install -r requirements/travisCI.txt
 before_script:
   - mysql -e 'create database travis_ci_db;'
-script:
   - yapf -vv -pri board/
+script:
   - flake8 `ls -d */ | egrep -v 'config|requirements'`
   - python manage.py migrate
-  - coverage run --include='board/*py' --omit='board/apps.py,board/migrations/*.py,board/tests/*.py' ./manage.py test
+  - coverage run --include='board/*py' --omit='board/apps.py,board/migrations/*,board/static/*,board/tests/*' ./manage.py test
 # publish coverage only after a successful build
 after_success:
   - codecov
